@@ -1,0 +1,280 @@
+/* Stylesheet for ekingery.com */
+
+/* Generic Page Styles */
+body    {
+	color:            #00FF00;
+	background-color: black; 
+	font-family:      monospace, "Firefox handles monospace poorly";
+	margin:           0;
+	padding:          0; 
+	text-align:       center;
+}
+
+big     { 
+	font-size:  130%; 
+}
+
+small   { 
+	font-size:  85%; 
+}
+
+h1,h2,h3,h4,h5,h6 { 
+	color:            #33CCFF; 
+	background-color: black; 
+}
+
+li,dl,dt,dd {
+	padding:  .1em;
+}
+
+dt      {
+	margin-top: 1.5em;
+	font-weight:  bold;
+}
+
+a:link  { 
+	color:            #FFFF00;
+	background-color: black;
+}
+a:visited { 
+	color:            #CC66CC; 
+	background-color: black;
+}
+
+a:hover { 
+	color:            #00FF00; 
+	background-color: black;
+}
+
+/* End Generic Page Styles */
+
+
+
+/* Main Content Styles */
+#content {
+	margin:         0 10px 0 12.5em;
+	padding:        8px;
+	border-left:    1px solid #00FF00;
+	border-bottom:  1px solid #00FF00;
+}
+ul.content {
+	list-style-type:  none;
+	padding:          0;
+}
+/* End Main Content Styles */
+
+
+/* Clearfix styles */
+.clearfix:after, .container:after { 
+	content: ".";  
+	display: block; 
+	height: 0; 
+	clear: both; 
+	visibility: hidden; 
+}
+
+.clearfix, .container {display: inline-block;}
+
+* html .clearfix
+
+.clearfix, .container {display: block;}
+/* End Clearfix styles */
+
+#clock_output {
+	align: center;
+}
+
+/* Sprite styles */
+#digit0
+{
+	width:125px;
+	height:200px;
+	background-image:url(/images/clock/1238_sprite.png);
+	background-position:0 0;
+	float:left;
+}	
+#digit1
+{
+	width:125px;
+	height:200px;
+	background-image:url(/images/clock/1238_sprite.png);
+	background-position:0 1800px;
+	float:left;
+}	
+#digit2
+{
+	width:125px;
+	height:200px;
+	background-image:url(/images/clock/1238_sprite.png);
+	background-position:0 1600px;
+	float:left;
+}	
+#digit3
+{
+	width:125px;
+	height:200px;
+	background-image:url(/images/clock/1238_sprite.png);
+	background-position:0 1400px;
+	float:left;
+}	
+#digit4
+{
+	width:125px;
+	height:200px;
+	background-image:url(/images/clock/1238_sprite.png);
+	background-position:0 1200px;
+	float:left;
+}	
+#digit5
+{
+	width:125px;
+	height:200px;
+	background-image:url(/images/clock/1238_sprite.png);
+	background-position:0 1000px;
+	float:left;
+}	
+#digit6
+{
+	width:125px;
+	height:200px;
+	background-image:url(/images/clock/1238_sprite.png);
+	background-position:0 800px;
+	float:left;
+}	
+#digit7
+{
+	width:125px;
+	height:200px;
+	background-image:url(/images/clock/1238_sprite.png);
+	background-position:0 600px;
+	float:left;
+}	
+#digit8
+{
+	width:125px;
+	height:200px;
+	background-image:url(/images/clock/1238_sprite.png);
+	background-position:0 400px;
+	float:left;
+}	
+#digit9
+{
+	width:125px;
+	height:200px;
+	background-image:url(/images/clock/1238_sprite.png);
+	background-position:0 200px;
+	float:left;
+}	
+
+#till
+{
+  width: 500px;
+	height: 200px;
+	background-image:url(/images/clock/till.png);
+	float:left;
+}
+
+#dots_off
+{
+	width:60px;
+	height:200px;
+	background-image:url(/images/clock/dots_sprite.png);
+	background-position:0 0;
+	float:left;
+}	
+#dots_on
+{
+	width:60px;
+	height:200px;
+	background-image:url(/images/clock/dots_sprite.png);
+	background-position:60px 0;
+	float:left;
+}	
+
+#digit_big_1
+{
+  width:  250px;
+	height: 400px;
+	background-image:url(/images/clock/1.png);
+	float:left;
+}
+#digit_big_2
+{
+  width:  250px;
+	height: 400px;
+	background-image:url(/images/clock/2.png);
+	float:left;
+}
+#digit_big_3
+{
+  width:  250px;
+	height: 400px;
+	background-image:url(/images/clock/3.png);
+	float:left;
+}
+#digit_big_8
+{
+  width:  250px;
+	height: 400px;
+	background-image:url(/images/clock/8.png);
+	float:left;
+}
+#dots_big_off
+{
+	width:63px;
+	height:400px;
+	background-image:url(/images/clock/dots_sprite_large.png);
+	background-position:0 0;
+	float:left;
+}	
+#dots_big_on
+{
+	width:63px;
+	height:400px;
+	background-image:url(/images/clock/dots_sprite_large.png);
+	background-position:63px 0;
+	float:left;
+}	
+
+/* End Sprite styles */
+
+
+/* Footer Styles */
+#footer {
+	padding:      0;
+	margin:       0 .5em 0 .5em;
+	border-top:   1px solid #00FF00;
+}
+#footer li {
+	display:    inline;
+	list-style: none;
+	padding:    0;
+	margin:     0;
+}
+#footer #left {
+	float:        left;
+	margin-right: 10px;
+}
+#footer #right {
+	float:        right;
+	margin-right: 10px;
+}
+/* End Footer Styles */
+
+
+/* Specific Page Styles */
+div.cont_sep {
+	border-bottom:  1px dotted #00FF00;
+}
+
+img.validation_button {
+	border: 0;
+	width:  88px;
+	height: 31px;
+}
+
+dt.top  {
+	margin-top: .1em;
+}
+
+/* End Specific Page Styles */
