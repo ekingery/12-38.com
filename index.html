@@ -1,32 +1,103 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta name="generator" content=
-  "HTML Tidy for Linux/x86 (vers 12 April 2005), see www.w3.org" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/styles/12-38_style.css" type="text/css">
+  <title>I can't wait 'till 12:38</title>
+  <script src="/js/upcoming.js"></script>
+  <style>
+    /* Page layout - content starts ~1/3 down */
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-top: 10vh;
+    }
 
-  <link rel="stylesheet" href="/styles/12-38_style.css" type="text/css" />
+    .content {
+      flex: 1;
+    }
 
-  <title>I can&#39;t wait &#39;till 12:38</title>
-	<script type="text/javascript" src="/includes/upcoming.js"></script>
+    /* Hero image */
+    .hero-img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Countdown link - prominent and separate */
+    .countdown-link {
+      display: block;
+      margin: 20px auto;
+      padding: 15px 30px;
+      font-size: 1.5em;
+      border: 2px solid #00FF00;
+      text-decoration: none;
+      max-width: 300px;
+    }
+    .countdown-link:hover {
+      background-color: #FFFF00;
+      color: black;
+    }
+
+    /* Upcoming section */
+    .upcoming-header {
+      margin-top: 10px;
+      color: #33CCFF;
+    }
+
+    .upcoming-list {
+      text-align: left;
+      display: inline-block;
+      margin: 10px auto;
+      width: 90%;
+      max-width: 500px;
+    }
+
+    .upcoming-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 4px 0;
+    }
+
+    .upcoming-separator {
+      border-top: 1px dotted #555555;
+      margin: 8px 0;
+    }
+
+    .city-name {
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #FFAA00;
+    }
+
+    .city-name.highlighted {
+      color: #33CCFF;
+    }
+
+    .city-time {
+      text-align: right;
+      margin-left: 10px;
+      white-space: nowrap;
+    }
+
+    .celebrating {
+      color: #FFFF00;
+      font-weight: bold;
+    }
+  </style>
 </head>
 
 <body>
-	<div class="content">
-		<br />
-		<a href="/countdown">
-			<img src="/images/12_38_construction.jpg" alt="12:38" /><br />
-		</a>
-		<ul class="content">
-			<li><a href="/countdown">Official 12:38 Countdown</a></li>
-			<li>
-				<!-- <a href="/upcoming">Upcoming 12:38 Celebrations</a> Around the World -->
-				<a href="javascript:upcoming_tz_set_then_load()">Upcoming 12:38 Celebrations</a> Around the World
-			</li>
-		</ul>
-	</div>
-  <!--#include virtual="/includes/12-38_footer.html" -->
+  <div class="content">
+    <a href="/countdown"><img src="/images/12_38_construction.jpg" alt="12:38" class="hero-img"></a>
+
+    <a href="/countdown" class="countdown-link">Official 12:38 Countdown</a>
+
+    <h3 class="upcoming-header">Upcoming 12:38 Celebrations</h3>
+    <div id="upcoming-output" class="upcoming-list"></div>
+  </div>
 </body>
 </html>
