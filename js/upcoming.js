@@ -13,6 +13,7 @@ const USA_ALWAYS = [
   { name: 'Stoughton', country: 'USA', tz: 'America/Chicago' },
   { name: 'Seattle', country: 'USA', tz: 'America/Los_Angeles' },
   { name: 'Elmhurst', country: 'USA', tz: 'America/Chicago' },
+  { name: 'Oregon', country: 'USA', tz: 'America/Chicago' },
 ];
 
 const USA_RANDOM_POOL = [
@@ -27,53 +28,131 @@ const USA_RANDOM_POOL = [
   { name: 'Atlanta', country: 'USA', tz: 'America/New_York' },
 ];
 
-// All other countries (max 3 per country built into list)
+// All other countries
 const OTHER_CITIES = [
-  // Pacific
+  // Antarctica
+  { name: 'McMurdo Station', country: 'Antarctica', tz: 'Antarctica/McMurdo' },
+  { name: 'Casey Station', country: 'Antarctica', tz: 'Antarctica/Casey' },
+  { name: 'Rothera Station', country: 'Antarctica', tz: 'Antarctica/Rothera' },
+
+  // Pacific Islands
   { name: 'Pago Pago', country: 'American Samoa', tz: 'Pacific/Pago_Pago' },
-  { name: 'Marquesas', country: 'French Polynesia', tz: 'Pacific/Marquesas' },
+  { name: 'Bora Bora', country: 'French Polynesia', tz: 'Pacific/Tahiti' },
+  { name: 'Tahiti', country: 'French Polynesia', tz: 'Pacific/Tahiti' },
+  { name: 'Tonga', country: 'Tonga', tz: 'Pacific/Tongatapu' },
+  { name: 'Guam', country: 'USA', tz: 'Pacific/Guam' },
 
   // Canada
   { name: 'Vancouver', country: 'Canada', tz: 'America/Vancouver' },
   { name: 'Toronto', country: 'Canada', tz: 'America/Toronto' },
   { name: "St. John's", country: 'Canada', tz: 'America/St_Johns' },
+  { name: 'Whitehorse', country: 'Canada', tz: 'America/Whitehorse' },
+  { name: 'Yellowknife', country: 'Canada', tz: 'America/Yellowknife' },
+  { name: 'Iqaluit', country: 'Canada', tz: 'America/Iqaluit' },
+  { name: 'Moose Jaw', country: 'Canada', tz: 'America/Regina' },
+  { name: 'Medicine Hat', country: 'Canada', tz: 'America/Edmonton' },
+  { name: 'Winnipeg', country: 'Canada', tz: 'America/Winnipeg' },
 
-  // Latin America
+  // USA (fun names)
+  { name: 'Boise', country: 'USA', tz: 'America/Boise' },
+  { name: 'Albuquerque', country: 'USA', tz: 'America/Denver' },
+  { name: 'Kalamazoo', country: 'USA', tz: 'America/Detroit' },
+  { name: 'Walla Walla', country: 'USA', tz: 'America/Los_Angeles' },
+  { name: 'Tallahassee', country: 'USA', tz: 'America/New_York' },
+  { name: 'Chattanooga', country: 'USA', tz: 'America/New_York' },
+  { name: 'Tuscaloosa', country: 'USA', tz: 'America/Chicago' },
+  { name: 'Schenectady', country: 'USA', tz: 'America/New_York' },
+  { name: 'Poughkeepsie', country: 'USA', tz: 'America/New_York' },
+  { name: 'Oshkosh', country: 'USA', tz: 'America/Chicago' },
+  { name: 'Topeka', country: 'USA', tz: 'America/Chicago' },
+  { name: 'Wichita', country: 'USA', tz: 'America/Chicago' },
+  { name: 'Tucumcari', country: 'USA', tz: 'America/Denver' },
+
+  // Mexico & Central America
   { name: 'Mexico City', country: 'Mexico', tz: 'America/Mexico_City' },
+  { name: 'Cancún', country: 'Mexico', tz: 'America/Cancun' },
+  { name: 'Tijuana', country: 'Mexico', tz: 'America/Tijuana' },
   { name: 'Guatemala City', country: 'Guatemala', tz: 'America/Guatemala' },
   { name: 'Havana', country: 'Cuba', tz: 'America/Havana' },
+  { name: 'San Juan', country: 'Puerto Rico', tz: 'America/Puerto_Rico' },
+  { name: 'Kingston', country: 'Jamaica', tz: 'America/Jamaica' },
+  { name: 'Nassau', country: 'Bahamas', tz: 'America/Nassau' },
+
+  // South America
   { name: 'Lima', country: 'Peru', tz: 'America/Lima' },
+  { name: 'Cusco', country: 'Peru', tz: 'America/Lima' },
   { name: 'Bogotá', country: 'Colombia', tz: 'America/Bogota' },
+  { name: 'Cartagena', country: 'Colombia', tz: 'America/Bogota' },
   { name: 'Santiago', country: 'Chile', tz: 'America/Santiago' },
   { name: 'Caracas', country: 'Venezuela', tz: 'America/Caracas' },
   { name: 'La Paz', country: 'Bolivia', tz: 'America/La_Paz' },
   { name: 'Buenos Aires', country: 'Argentina', tz: 'America/Argentina/Buenos_Aires' },
+  { name: 'Ushuaia', country: 'Argentina', tz: 'America/Argentina/Ushuaia' },
   { name: 'São Paulo', country: 'Brazil', tz: 'America/Sao_Paulo' },
+  { name: 'Manaus', country: 'Brazil', tz: 'America/Manaus' },
+  { name: 'Rio de Janeiro', country: 'Brazil', tz: 'America/Sao_Paulo' },
   { name: 'Montevideo', country: 'Uruguay', tz: 'America/Montevideo' },
+  { name: 'Quito', country: 'Ecuador', tz: 'America/Guayaquil' },
+  { name: 'Galápagos', country: 'Ecuador', tz: 'Pacific/Galapagos' },
+  { name: 'Asunción', country: 'Paraguay', tz: 'America/Asuncion' },
 
   // Atlantic
   { name: 'Azores', country: 'Portugal', tz: 'Atlantic/Azores' },
-  { name: 'Praia', country: 'Cape Verde', tz: 'Atlantic/Cape_Verde' },
   { name: 'Reykjavik', country: 'Iceland', tz: 'Atlantic/Reykjavik' },
 
   // Europe
   { name: 'London', country: 'UK', tz: 'Europe/London' },
+  { name: 'Edinburgh', country: 'UK', tz: 'Europe/London' },
   { name: 'Dublin', country: 'Ireland', tz: 'Europe/Dublin' },
   { name: 'Paris', country: 'France', tz: 'Europe/Paris' },
   { name: 'Berlin', country: 'Germany', tz: 'Europe/Berlin' },
   { name: 'Rome', country: 'Italy', tz: 'Europe/Rome' },
   { name: 'Madrid', country: 'Spain', tz: 'Europe/Madrid' },
+  { name: 'Barcelona', country: 'Spain', tz: 'Europe/Madrid' },
+  { name: 'Lisbon', country: 'Portugal', tz: 'Europe/Lisbon' },
+  { name: 'Amsterdam', country: 'Netherlands', tz: 'Europe/Amsterdam' },
+  { name: 'Brussels', country: 'Belgium', tz: 'Europe/Brussels' },
+  { name: 'Vienna', country: 'Austria', tz: 'Europe/Vienna' },
+  { name: 'Prague', country: 'Czech Republic', tz: 'Europe/Prague' },
+  { name: 'Warsaw', country: 'Poland', tz: 'Europe/Warsaw' },
+  { name: 'Budapest', country: 'Hungary', tz: 'Europe/Budapest' },
+  { name: 'Bucharest', country: 'Romania', tz: 'Europe/Bucharest' },
   { name: 'Athens', country: 'Greece', tz: 'Europe/Athens' },
   { name: 'Kyiv', country: 'Ukraine', tz: 'Europe/Kyiv' },
   { name: 'Moscow', country: 'Russia', tz: 'Europe/Moscow' },
   { name: 'Istanbul', country: 'Turkey', tz: 'Europe/Istanbul' },
+  { name: 'Oslo', country: 'Norway', tz: 'Europe/Oslo' },
+  { name: 'Stockholm', country: 'Sweden', tz: 'Europe/Stockholm' },
+  { name: 'Copenhagen', country: 'Denmark', tz: 'Europe/Copenhagen' },
+  { name: 'Helsinki', country: 'Finland', tz: 'Europe/Helsinki' },
+  { name: 'Tallinn', country: 'Estonia', tz: 'Europe/Tallinn' },
+  { name: 'Riga', country: 'Latvia', tz: 'Europe/Riga' },
+  { name: 'Vilnius', country: 'Lithuania', tz: 'Europe/Vilnius' },
+  { name: 'Zürich', country: 'Switzerland', tz: 'Europe/Zurich' },
+  { name: 'Monaco', country: 'Monaco', tz: 'Europe/Monaco' },
 
   // Africa
   { name: 'Accra', country: 'Ghana', tz: 'Africa/Accra' },
   { name: 'Lagos', country: 'Nigeria', tz: 'Africa/Lagos' },
   { name: 'Cairo', country: 'Egypt', tz: 'Africa/Cairo' },
   { name: 'Johannesburg', country: 'South Africa', tz: 'Africa/Johannesburg' },
+  { name: 'Cape Town', country: 'South Africa', tz: 'Africa/Johannesburg' },
   { name: 'Nairobi', country: 'Kenya', tz: 'Africa/Nairobi' },
+  { name: 'Casablanca', country: 'Morocco', tz: 'Africa/Casablanca' },
+  { name: 'Marrakech', country: 'Morocco', tz: 'Africa/Casablanca' },
+  { name: 'Timbuktu', country: 'Mali', tz: 'Africa/Bamako' },
+  { name: 'Zanzibar', country: 'Tanzania', tz: 'Africa/Dar_es_Salaam' },
+  { name: 'Dar es Salaam', country: 'Tanzania', tz: 'Africa/Dar_es_Salaam' },
+  { name: 'Addis Ababa', country: 'Ethiopia', tz: 'Africa/Addis_Ababa' },
+  { name: 'Kinshasa', country: 'DR Congo', tz: 'Africa/Kinshasa' },
+  { name: 'Harare', country: 'Zimbabwe', tz: 'Africa/Harare' },
+  { name: 'Lusaka', country: 'Zambia', tz: 'Africa/Lusaka' },
+  { name: 'Kampala', country: 'Uganda', tz: 'Africa/Kampala' },
+  { name: 'Dakar', country: 'Senegal', tz: 'Africa/Dakar' },
+  { name: 'Tunis', country: 'Tunisia', tz: 'Africa/Tunis' },
+  { name: 'Algiers', country: 'Algeria', tz: 'Africa/Algiers' },
+  { name: 'Tripoli', country: 'Libya', tz: 'Africa/Tripoli' },
+  { name: 'Antananarivo', country: 'Madagascar', tz: 'Indian/Antananarivo' },
 
   // Middle East
   { name: 'Jerusalem', country: 'Israel', tz: 'Asia/Jerusalem' },
@@ -82,10 +161,16 @@ const OTHER_CITIES = [
   { name: 'Tehran', country: 'Iran', tz: 'Asia/Tehran' },
   { name: 'Dubai', country: 'UAE', tz: 'Asia/Dubai' },
   { name: 'Kabul', country: 'Afghanistan', tz: 'Asia/Kabul' },
+  { name: 'Muscat', country: 'Oman', tz: 'Asia/Muscat' },
+  { name: 'Doha', country: 'Qatar', tz: 'Asia/Qatar' },
+  { name: 'Kuwait City', country: 'Kuwait', tz: 'Asia/Kuwait' },
+  { name: 'Beirut', country: 'Lebanon', tz: 'Asia/Beirut' },
+  { name: 'Amman', country: 'Jordan', tz: 'Asia/Amman' },
 
-  // South/Central Asia
+  // Central Asia
   { name: 'Karachi', country: 'Pakistan', tz: 'Asia/Karachi' },
   { name: 'Mumbai', country: 'India', tz: 'Asia/Kolkata' },
+  { name: 'Bangalore', country: 'India', tz: 'Asia/Kolkata' },
   { name: 'Colombo', country: 'Sri Lanka', tz: 'Asia/Colombo' },
   { name: 'Kathmandu', country: 'Nepal', tz: 'Asia/Kathmandu' },
   { name: 'Dhaka', country: 'Bangladesh', tz: 'Asia/Dhaka' },
@@ -94,22 +179,40 @@ const OTHER_CITIES = [
   // Southeast Asia
   { name: 'Bangkok', country: 'Thailand', tz: 'Asia/Bangkok' },
   { name: 'Ho Chi Minh City', country: 'Vietnam', tz: 'Asia/Ho_Chi_Minh' },
+  { name: 'Hanoi', country: 'Vietnam', tz: 'Asia/Ho_Chi_Minh' },
   { name: 'Jakarta', country: 'Indonesia', tz: 'Asia/Jakarta' },
+  { name: 'Bali', country: 'Indonesia', tz: 'Asia/Makassar' },
   { name: 'Singapore', country: 'Singapore', tz: 'Asia/Singapore' },
   { name: 'Manila', country: 'Philippines', tz: 'Asia/Manila' },
   { name: 'Kuala Lumpur', country: 'Malaysia', tz: 'Asia/Kuala_Lumpur' },
+  { name: 'Phnom Penh', country: 'Cambodia', tz: 'Asia/Phnom_Penh' },
+  { name: 'Vientiane', country: 'Laos', tz: 'Asia/Vientiane' },
 
   // East Asia
   { name: 'Hong Kong', country: 'China', tz: 'Asia/Hong_Kong' },
+  { name: 'Shanghai', country: 'China', tz: 'Asia/Shanghai' },
+  { name: 'Beijing', country: 'China', tz: 'Asia/Shanghai' },
   { name: 'Taipei', country: 'Taiwan', tz: 'Asia/Taipei' },
   { name: 'Tokyo', country: 'Japan', tz: 'Asia/Tokyo' },
+  { name: 'Osaka', country: 'Japan', tz: 'Asia/Tokyo' },
   { name: 'Seoul', country: 'South Korea', tz: 'Asia/Seoul' },
+  { name: 'Ulaanbaatar', country: 'Mongolia', tz: 'Asia/Ulaanbaatar' },
+  { name: 'Vladivostok', country: 'Russia', tz: 'Asia/Vladivostok' },
+  { name: 'Yakutsk', country: 'Russia', tz: 'Asia/Yakutsk' },
+  { name: 'Magadan', country: 'Russia', tz: 'Asia/Magadan' },
+  { name: 'Petropavlovsk', country: 'Russia', tz: 'Asia/Kamchatka' },
 
   // Australia/Pacific
   { name: 'Perth', country: 'Australia', tz: 'Australia/Perth' },
   { name: 'Darwin', country: 'Australia', tz: 'Australia/Darwin' },
+  { name: 'Adelaide', country: 'Australia', tz: 'Australia/Adelaide' },
+  { name: 'Melbourne', country: 'Australia', tz: 'Australia/Melbourne' },
   { name: 'Sydney', country: 'Australia', tz: 'Australia/Sydney' },
+  { name: 'Brisbane', country: 'Australia', tz: 'Australia/Brisbane' },
+  { name: 'Hobart', country: 'Australia', tz: 'Australia/Hobart' },
   { name: 'Auckland', country: 'New Zealand', tz: 'Pacific/Auckland' },
+  { name: 'Wellington', country: 'New Zealand', tz: 'Pacific/Auckland' },
+  { name: 'Christchurch', country: 'New Zealand', tz: 'Pacific/Auckland' },
   { name: 'Suva', country: 'Fiji', tz: 'Pacific/Fiji' },
   { name: 'Apia', country: 'Samoa', tz: 'Pacific/Apia' },
 ];
@@ -237,44 +340,94 @@ const renderUpcoming = () => {
     city.name === 'Chicago' || city.isCelebrating || city.secondsUntil <= ONE_HOUR
   );
 
-  // Sort by seconds until (celebrating cities first, then by time)
-  withinHour.sort((a, b) => {
-    if (a.isCelebrating && !b.isCelebrating) return -1;
-    if (!a.isCelebrating && b.isCelebrating) return 1;
-    return a.secondsUntil - b.secondsUntil;
-  });
-
   // Build HTML
   if (withinHour.length === 0) {
     container.innerHTML = '<p>No cities hitting 12:38 in the next hour. Check back soon!</p>';
     return;
   }
 
-  // Track which countdown times we've already shown
-  const shownCountdowns = new Set();
+  // Group cities by countdown key (same time = same group)
+  const groups = new Map();
+  withinHour.forEach(city => {
+    const key = `${city.amPm}-${city.secondsUntil}`;
+    if (!groups.has(key)) {
+      groups.set(key, { cities: [], amPm: city.amPm, secondsUntil: city.secondsUntil, isCelebrating: city.isCelebrating });
+    }
+    groups.get(key).cities.push(city);
+  });
 
-  let isFirstCountdown = true;
-  const html = withinHour.map(city => {
-    const countdownKey = `${city.amPm}-${city.secondsUntil}`;
-    const showCountdown = !shownCountdowns.has(countdownKey);
-    shownCountdowns.add(countdownKey);
+  // Sort groups by time (celebrating first, then by seconds)
+  const sortedGroups = Array.from(groups.values()).sort((a, b) => {
+    if (a.isCelebrating && !b.isCelebrating) return -1;
+    if (!a.isCelebrating && b.isCelebrating) return 1;
+    return a.secondsUntil - b.secondsUntil;
+  });
 
-    // Add separator line before new countdown groups (except first)
-    const showSeparator = showCountdown && !isFirstCountdown;
-    if (showCountdown) isFirstCountdown = false;
+  // Track country counts across all groups (max 3 per country overall)
+  const globalCountryCounts = new Map();
 
-    let timeStr = '';
-    if (showCountdown) {
-      timeStr = city.isCelebrating
-        ? `<span class="celebrating">HAPPENING NOW!</span>`
-        : `12:38 ${city.amPm} in ${formatCountdown(city.secondsUntil)}`;
+  // Process each group: limit countries, sort by country
+  const processedGroups = sortedGroups.map(group => {
+    const countryCounts = new Map();
+    const filtered = [];
+
+    // Sort by country first, then by city name
+    group.cities.sort((a, b) => {
+      if (a.country !== b.country) return a.country.localeCompare(b.country);
+      return a.name.localeCompare(b.name);
+    });
+
+    for (const city of group.cities) {
+      // Chicago always appears and doesn't count towards limits
+      if (city.name === 'Chicago') {
+        filtered.push(city);
+        continue;
+      }
+
+      const countryCount = countryCounts.get(city.country) || 0;
+      const globalCount = globalCountryCounts.get(city.country) || 0;
+
+      // Max 3 per country overall
+      if (globalCount >= 3) continue;
+
+      // Hard limit of 2 per country per group
+      if (countryCount >= 2) continue;
+
+      // For non-USA, prefer 1 per group (diversity)
+      if (city.country !== 'USA' && countryCount >= 1) {
+        continue;
+      }
+
+      filtered.push(city);
+      countryCounts.set(city.country, countryCount + 1);
+      globalCountryCounts.set(city.country, globalCount + 1);
     }
 
-    const isChicago = city.name === 'Chicago';
-    return `${showSeparator ? '<div class="upcoming-separator"></div>' : ''}<div class="upcoming-row${city.isCelebrating ? ' celebrating' : ''}">
+    return { ...group, cities: filtered };
+  });
+
+  // Build HTML
+  let isFirstGroup = true;
+  const html = processedGroups.map(group => {
+    if (group.cities.length === 0) return '';
+
+    const showSeparator = !isFirstGroup;
+    isFirstGroup = false;
+
+    const timeStr = group.isCelebrating
+      ? `<span class="celebrating">HAPPENING NOW!</span>`
+      : `12:38 ${group.amPm} in ${formatCountdown(group.secondsUntil)}`;
+
+    const citiesHtml = group.cities.map((city, idx) => {
+      const isChicago = city.name === 'Chicago';
+      const showTime = idx === 0; // Only show countdown on first city of group
+      return `<div class="upcoming-row${city.isCelebrating ? ' celebrating' : ''}">
       <span class="city-name${isChicago ? ' highlighted' : ''}">${city.name}, ${city.country}</span>
-      <span class="city-time">${timeStr}</span>
+      <span class="city-time">${showTime ? timeStr : ''}</span>
     </div>`;
+    }).join('');
+
+    return `${showSeparator ? '<div class="upcoming-separator"></div>' : ''}${citiesHtml}`;
   }).join('');
 
   container.innerHTML = html;
