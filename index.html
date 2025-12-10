@@ -33,12 +33,17 @@
       padding: 15px 30px;
       font-size: 1.5em;
       border: 2px solid #00FF00;
-      text-decoration: none;
-      max-width: 300px;
+      text-decoration: underline;
+      max-width: 400px;
+      box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
     }
     .countdown-link:hover {
       background-color: #FFFF00;
       color: black;
+      box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.7);
+    }
+    .whisk-text {
+      font-size: 0.75em;
     }
 
     /* Upcoming section */
@@ -95,7 +100,7 @@
   <div class="content">
     <a href="/countdown"><img src="/images/12_38_construction.jpg" alt="12:38" class="hero-img"></a>
 
-    <a href="/countdown" class="countdown-link">Official 12:38 Countdown</a>
+    <a href="/countdown" class="countdown-link"><span class="whisk-text">Whisk me away to the...</span><br>Official 12:38 Countdown</a>
 
     <h3 class="upcoming-header">Upcoming 12:38 Celebrations</h3>
     <div id="upcoming-output" class="upcoming-list"></div>
