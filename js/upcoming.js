@@ -371,8 +371,13 @@ const renderUpcoming = () => {
     const countryCounts = new Map();
     const filtered = [];
 
-    // Sort by city name only for stable display
-    group.cities.sort((a, b) => a.name.localeCompare(b.name));
+    // Sort by country, then city name for stable display and country grouping
+    group.cities.sort((a, b) => {
+      if (a.country === b.country) {
+        return a.name.localeCompare(b.name);
+      }
+      return a.country.localeCompare(b.country);
+    });
 
     for (const city of group.cities) {
       // Chicago always appears and doesn't count towards limits
