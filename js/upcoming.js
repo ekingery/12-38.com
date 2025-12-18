@@ -1,5 +1,5 @@
 /**
- * Upcoming 12:38 Celebrations
+ * Upcoming Celebrations
  * Shows cities where 12:38 is coming up within the next hour
  */
 
@@ -371,11 +371,8 @@ const renderUpcoming = () => {
     const countryCounts = new Map();
     const filtered = [];
 
-    // Sort by country first, then by city name
-    group.cities.sort((a, b) => {
-      if (a.country !== b.country) return a.country.localeCompare(b.country);
-      return a.name.localeCompare(b.name);
-    });
+    // Sort by city name only for stable display
+    group.cities.sort((a, b) => a.name.localeCompare(b.name));
 
     for (const city of group.cities) {
       // Chicago always appears and doesn't count towards limits
@@ -434,7 +431,23 @@ const renderUpcoming = () => {
 };
 
 // Initialize on page load
+
+
 window.addEventListener('DOMContentLoaded', () => {
   renderUpcoming();
-  setInterval(renderUpcoming, 1000);
+  setInterval(renderUpcoming, 1000); // Update countdown every second
+
+  // Function to refresh cities and re-render
+  const refreshCities = () => {
+    CITIES = buildCityList();
+    renderUpcoming();
+  };
+
+  // Calculate ms until next minute
+  const now = new Date();
+  const msToNextMinute = (60 - now.getSeconds()) * 1000 - now.getMilliseconds();
+  setTimeout(() => {
+    refreshCities();
+    setInterval(refreshCities, 60000); // Then every minute
+  }, msToNextMinute);
 });
