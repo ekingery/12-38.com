@@ -356,11 +356,12 @@ const renderUpcoming = () => {
     groups.get(key).cities.push(city);
   });
 
-  // Sort groups by time (celebrating first, then by seconds)
+  // Sort groups by time (celebrating first, then by seconds, then by AM/PM for stability)
   const sortedGroups = Array.from(groups.values()).sort((a, b) => {
     if (a.isCelebrating && !b.isCelebrating) return -1;
     if (!a.isCelebrating && b.isCelebrating) return 1;
-    return a.secondsUntil - b.secondsUntil;
+    if (a.secondsUntil !== b.secondsUntil) return a.secondsUntil - b.secondsUntil;
+    return a.amPm.localeCompare(b.amPm);  // Stable tiebreaker for equal countdown times
   });
 
   // Track country counts across all groups (max 3 per country overall)
@@ -379,12 +380,17 @@ const renderUpcoming = () => {
       return a.country.localeCompare(b.country);
     });
 
+    const MAX_CITIES_PER_GROUP = 6;
+
     for (const city of group.cities) {
       // Chicago always appears and doesn't count towards limits
       if (city.name === 'Chicago') {
         filtered.push(city);
         continue;
       }
+
+      // Max cities per time block
+      if (filtered.length >= MAX_CITIES_PER_GROUP) continue;
 
       const countryCount = countryCounts.get(city.country) || 0;
       const globalCount = globalCountryCounts.get(city.country) || 0;
