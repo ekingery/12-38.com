@@ -372,12 +372,9 @@ const renderUpcoming = () => {
     const countryCounts = new Map();
     const filtered = [];
 
-    // Sort by country, then city name for stable display and country grouping
+    // Sort by name length (shortest first) to prevent long names from being cut off
     group.cities.sort((a, b) => {
-      if (a.country === b.country) {
-        return a.name.localeCompare(b.name);
-      }
-      return a.country.localeCompare(b.country);
+      return a.name.length - b.name.length;
     });
 
     const MAX_CITIES_PER_GROUP = 6;
