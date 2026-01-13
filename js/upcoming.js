@@ -367,17 +367,18 @@ const renderUpcoming = () => {
   // Track country counts across all groups (max 3 per country overall)
   const globalCountryCounts = new Map();
 
-  // Process each group: limit countries, sort by country
+  // Process each group: limit countries, sort by name length
   const processedGroups = sortedGroups.map(group => {
     const countryCounts = new Map();
     const filtered = [];
 
-    // Sort by country, then city name for stable display and country grouping
+    // Sort by name length (shortest first) to prevent long names from being cut off
+    // Secondary sort by name for stable ordering when lengths are equal
     group.cities.sort((a, b) => {
-      if (a.country === b.country) {
-        return a.name.localeCompare(b.name);
+      if (a.name.length !== b.name.length) {
+        return a.name.length - b.name.length;
       }
-      return a.country.localeCompare(b.country);
+      return a.name.localeCompare(b.name);
     });
 
     const MAX_CITIES_PER_GROUP = 6;
